@@ -1,5 +1,8 @@
 package com.example.spoilerfreehighlights;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by claude on 14.12.16.
  */
@@ -7,47 +10,29 @@ package com.example.spoilerfreehighlights;
 public class GameResult {
 
     private String homeTeam;
-    private Integer homeScore;
-    private String awayTeam;
-    private Integer awayScore;
-    private String gameId;
-    private String highlightsUrl;
+    private Integer awayPoints;
     private String date;
+    private String gameId;
+    private Integer homePoints;
+    private String awayTeam;
+    private String highlights;
 
-    public GameResult(String homeTeam, Integer homeScore, String awayTeam, Integer awayScore,
-                      String gameId, String highlightsUrl, String date) {
+    @JsonCreator
+    public GameResult(@JsonProperty("home_team") String homeTeam,
+                      @JsonProperty("away_points") Integer awayPoints,
+                      @JsonProperty("date") String date,
+                      @JsonProperty("game_id") String gameId,
+                      @JsonProperty("home_points") Integer homePoints,
+                      @JsonProperty("away_team") String awayTeam,
+                      @JsonProperty("highlights") String highlights) {
 
-        this.homeTeam = homeTeam;
-        this.homeScore = homeScore;
         this.awayTeam = awayTeam;
-        this.awayScore = awayScore;
+        this.awayPoints = awayPoints;
+        this.homePoints = homePoints;
         this.gameId = gameId;
-        this.highlightsUrl = highlightsUrl;
-        this.date = date;
-    }
-
-    public static GameResult of(String homeTeam, Integer homeScore, String awayTeam,
-                                Integer awayScore, String gameId, String highlightsUrl,
-                                String date) {
-
-        return new GameResult(homeTeam, homeScore, awayTeam, awayScore, gameId, highlightsUrl,
-                date);
-    }
-
-    public String getHomeTeam() {
-        return homeTeam;
-    }
-
-    public void setHomeTeam(String homeTeam) {
+        this.highlights = highlights;
         this.homeTeam = homeTeam;
-    }
-
-    public Integer getHomeScore() {
-        return homeScore;
-    }
-
-    public void setHomeScore(Integer homeScore) {
-        this.homeScore = homeScore;
+        this.date = date;
     }
 
     public String getAwayTeam() {
@@ -58,12 +43,20 @@ public class GameResult {
         this.awayTeam = awayTeam;
     }
 
-    public Integer getAwayScore() {
-        return awayScore;
+    public Integer getAwayPoints() {
+        return awayPoints;
     }
 
-    public void setAwayScore(Integer awayScore) {
-        this.awayScore = awayScore;
+    public void setAwayPoints(Integer awayPoints) {
+        this.awayPoints = awayPoints;
+    }
+
+    public Integer getHomePoints() {
+        return homePoints;
+    }
+
+    public void setHomePoints(Integer homePoints) {
+        this.homePoints = homePoints;
     }
 
     public String getGameId() {
@@ -74,12 +67,20 @@ public class GameResult {
         this.gameId = gameId;
     }
 
-    public String getHighlightsUrl() {
-        return highlightsUrl;
+    public String getHighlights() {
+        return highlights;
     }
 
-    public void setHighlightsUrl(String highlightsUrl) {
-        this.highlightsUrl = highlightsUrl;
+    public void setHighlights(String highlights) {
+        this.highlights = highlights;
+    }
+
+    public String getHomeTeam() {
+        return homeTeam;
+    }
+
+    public void setHomeTeam(String homeTeam) {
+        this.homeTeam = homeTeam;
     }
 
     public String getDate() {

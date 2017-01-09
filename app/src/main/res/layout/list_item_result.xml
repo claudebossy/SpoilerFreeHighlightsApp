@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:onClick="showHighlights"
+    android:longClickable="true"
+    android:layout_height="100dp" android:orientation="horizontal">
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent"
-        android:id="@+id/tvAwayTeam">
-
+        android:layout_width="100dp" android:layout_height="match_parent" android:textSize="40dp"
+        android:gravity="center" android:id="@+id/tvAwayTeam" android:layout_toLeftOf="@+id/tvAwayScore">
+    </TextView>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android" android:visibility="invisible"
+        android:id="@+id/tvAwayScore" android:layout_width="50dp" android:gravity="center"
+        android:layout_height="match_parent" android:layout_toLeftOf="@+id/separator" android:text="199"
+        android:textSize="20dp" android:layout_centerHorizontal="true" >
     </TextView>
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:text="-" >
-
+        android:id="@+id/separator" android:layout_width="25dp" android:gravity="center"
+        android:textSize="20dp" android:layout_height="match_parent" android:layout_centerHorizontal="true" android:text="-" >
+    </TextView>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android" android:visibility="invisible"
+        android:id="@+id/tvHomeScore" android:layout_width="50dp" android:gravity="center"
+        android:layout_toRightOf="@+id/separator" android:layout_height="match_parent" android:text="199"
+        android:textSize="20dp" android:layout_centerHorizontal="true" >
     </TextView>
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/tvHomeTeam">
-
+        android:layout_width="100dp" android:layout_height="match_parent" android:textSize="40dp"
+        android:gravity="center" android:id="@+id/tvHomeTeam" android:layout_toRightOf="@+id/tvHomeScore">
     </TextView>
-</LinearLayout>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:id="@+id/highlights"/>
+</RelativeLayout>
